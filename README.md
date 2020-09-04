@@ -70,3 +70,31 @@ $ pip install -r requirements.txt
     * value: ワークディレクトリ/bin/python3
 * cmd + shift + P -> Reload WindowでVSCodeを再起動する
 * gitの同期ボタンの隣あたりに指定したvenvのPythonバージョンが表示されていれば成功！
+
+## vscodeのタスクとして実行する方法
+
+.vscode/tasks.jsonにタスクの定義を行う。
+
+```json:tasks.json
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "test",
+      "type": "shell",
+      "command": "source bin/activate && pytest src/**/test_*.py"
+    },
+    {
+      "label": "serve",
+      "type": "shell",
+      "command": "source bin/activate && FLASK_APP=src/main.py FLASK_ENV=development flask run --host 0.0.0.0 --port 5000"
+    }
+  ]
+}
+```
+
+コツ
+
+* source bin/activateをしないと、venvの環境に入ってくれない（Extensionはそこまでは面倒みてくれないみたい）ので、必ず先に実行させる
