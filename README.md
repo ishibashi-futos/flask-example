@@ -50,7 +50,7 @@ $ pip install -r requirements.txt
 
 * export FLASK_APP=src/main.py
 * export FLASK_ENV=development
-* flask run --host 0.0.0.0:5000 --debugger ~~--reload~~
+* flask run --host 0.0.0.0 --port 5000 --debugger ~~--reload~~
 
 ※--reloadをつけておくと、watchしてreloadしてくれる？（.pyファイルのみ？）
 →なくてもリロードしてくれる。謎

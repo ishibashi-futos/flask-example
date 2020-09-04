@@ -10,4 +10,4 @@ app.register_blueprint(index.app, url_prefix = "/api")
 app.register_blueprint(todos.app, url_prefix = "/api")
 
 if __name__ == '__main__':
-  app.run(host = "0.0.0.0", debug = True)
+  app.run()
