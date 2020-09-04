@@ -1,5 +1,5 @@
 from flask import Flask
-from controllers import users, books, index
+from controllers import users, books, index, todos
 
 app = Flask(__name__)
 
@@ -7,6 +7,7 @@ app = Flask(__name__)
 app.register_blueprint(users.app, url_prefix = "/api")
 app.register_blueprint(books.app, url_prefix = "/api")
 app.register_blueprint(index.app, url_prefix = "/api")
+app.register_blueprint(todos.app, url_prefix = "/api")
 
 if __name__ == '__main__':
   app.run(host = "0.0.0.0", debug = True)
