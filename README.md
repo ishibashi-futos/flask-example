@@ -43,3 +43,28 @@ $ pip freeze > requirements.txt
 ```bash
 $ pip install -r requirements.txt
 ```
+
+## debugモードで起動する方法
+
+* export FLASK_APP=src/main.py
+* export FLASK_ENV=development
+* flask run --host 0.0.0.0:5000 --debugger ~~--reload~~
+
+※--reloadをつけておくと、watchしてreloadしてくれる？（.pyファイルのみ？）
+→なくてもリロードしてくれる。謎
+
+## venvをvscodeでも使う方法
+
+※推奨
+[MS公式のExtension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)をインストールする
+
+* venvを初期化する
+  * python3 -m venv .
+* vscodeでプロジェクトを開く
+* .vscode/setting.jsonに以下のキーを追加
+  * key: python.venvPath
+    * value: venvを初期化した親ディレクトリ （謎）
+  * key: python.pythonPath
+    * value: ワークディレクトリ/bin/python3
+* cmd + shift + P -> Reload WindowでVSCodeを再起動する
+* gitの同期ボタンの隣あたりに指定したvenvのPythonバージョンが表示されていれば成功！
