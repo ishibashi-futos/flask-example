@@ -28,6 +28,8 @@ https://www.python.ambitious-engineer.com/archives/1959
 * pip install uWSGI
 * uwsgi --http=0.0.0.0:5000 --wsgi-file=main.py --callable=app
 
+※srcディレクトリ 内で実行しないとエラーになる。
+
 # Tips
 
 ## pipでインストールしたrequirementsをtextに書き出し＆テキストをもとに再インストール
